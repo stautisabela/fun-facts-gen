@@ -1,0 +1,7 @@
+Create FunFactsAPI
+API type is http
+IP address type is IPv4
+Integration with lambda
+Add route of method "GET" with resource path "/funfact" and integration target "FunFacts"
+CREATE
+
