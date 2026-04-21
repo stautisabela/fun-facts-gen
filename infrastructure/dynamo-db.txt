@@ -1,0 +1,38 @@
+Create "Facts" tanle
+Partition key: FactID (string)
+default configs, including on-demand capacity
+CREATE
+
+Insert sample items
+{ "FactID": "1", "FactText": "Whatever fact here." }
+
+Attach policy AmazonDynamoDBReadOnlyAcces to IAM role associated with Lambda 
+
+Update lambda code:
+import boto3
+import random
+import json
+
+# Create DynamoDB client
+dynamodb = boto3.resource("dynamodb")
+table = dynamodb.Table("Facts")
+
+def lambda_handler(event, context):
+    # Scan entire table (not efficient for huge tables, but fine here)
+    response = table.scan()
+    items = response.get("Items", [])
+
+    if not items:
+        return {
+            "statusCode": 500,
+            "body": json.dumps({"error": "No facts found"})
+        }
+
+    # Pick random fact
+    fact = random.choice(items)["FactText"]
+
+    return {
+        "statusCode": 200,
+        "headers": {"Content-Type": "application/json"},
+        "body": json.dumps({"fact": fact})
+    }

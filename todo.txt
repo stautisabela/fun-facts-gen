@@ -1,0 +1,4 @@
+[ ] lambda
+[ ] api gateway
+[ ] dynamo db
+[ ] amazon bedrock

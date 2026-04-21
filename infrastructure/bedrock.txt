@@ -1,0 +1,7 @@
+Request model access to Anthropic Claude (Claude 3.5 Sonnet?)
+Wait for approval
+
+Update IAM attached to lambda function (FunFactsRole)
+Attach AmazonBedrockFullAccess 
+
+Continue with https://learn.zerotocloud.co/courses/cloud-fun-facts-project/lectures/63029637
