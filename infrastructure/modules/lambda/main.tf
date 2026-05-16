@@ -25,8 +25,8 @@ resource "aws_iam_role_policy_attachment" "basic_execution" {
 
 data "archive_file" "lambda_zip" {
   type        = "zip"
-  source_file = "${path.root}/../../src/lambda/handler.py"
-  output_path = "${path.root}/../../src/lambda/handler.zip"
+  source_file = "${path.root}/../src/lambda/handler.py"
+  output_path = "${path.root}/../src/lambda/handler.zip"
 }
 
 resource "aws_lambda_function" "fun_facts" {
