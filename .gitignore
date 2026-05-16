@@ -1,0 +1,11 @@
+# Terraform
+.terraform/
+.terraform.lock.hcl
+*.tfstate
+*.tfstate.backup
+terraform.tfvars
+
+# Lambda build artifacts
+*.zip
+
+instructions/
